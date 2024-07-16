@@ -22,8 +22,12 @@ st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI]** :", divider='rainbow')
 
 # Kullanıcıdan hisse senedi adı almak için input fonksiyonu kullanın
 #hisse_adi = input("Hisse Adı : ").upper()
-hisse_input = st.text_input("**Hisse Adı (Sadece Borsadaki Kısaltma Adını Girin):**").upper()
-hisse_adi = hisse_input
+
+st.markdown(subheader, unsafe_allow_html=True)
+
+ticker_all_List = pd.read_csv("docs/bist.csv")
+tickers_all=ticker_all_List["Ticker"]
+hisse_input = st.selectbox('Hisse',tickers_all,index=161,help='Analiz Etmek İstediğiniz Hisseyi Seçebilirsiniz.')
 with st.container():
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -32,6 +36,10 @@ with st.container():
         Hour_btn = st.button('60 Dk. Analiz')
     with col3:
         FiveM_btn = st.button('5 Dk. Analiz')
+ticker=user_input
+
+hisse_adi = hisse_input
+
 if hisse_adi:
   # hisse_adi değişkenini url1 değişkeninde hisse parametresine atayın
   url1="https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/sirket-karti.aspx?hisse="+hisse_adi
