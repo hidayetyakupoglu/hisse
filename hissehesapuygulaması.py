@@ -64,7 +64,7 @@ if page == "TEKNİK":
     ema_8 = df['close'].ewm(span=8, adjust=False).mean()[-DATA_LEN:].to_list()
     ema_21 = df['close'].ewm(span=21, adjust=False).mean()[-DATA_LEN:].to_list()
     ema_50 = df['close'].ewm(span=50, adjust=False).mean()[-DATA_LEN:].to_list()
-    
+    ema_100 = df['close'].ewm(span=100, adjust=False).mean()[-DATA_LEN:].to_list()
     st.text("");st.text("");st.text("")
     
     
@@ -80,6 +80,7 @@ if page == "TEKNİK":
     plt.plot(ema_8, label='8 Günlük EMA')
     plt.plot(ema_21, label='21 Günlük EMA')
     plt.plot(ema_50, label='50 Günlük EMA')
+    plt.plot(ema_100, label='100 Günlük EMA')
     plt.legend()
     fig_html = mpld3.fig_to_html(fig)
     components.html(fig_html, height=500)
