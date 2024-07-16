@@ -127,7 +127,7 @@ if page == "AL-SAT":
         supertrend = Supertrend(df)
         df = df.join(supertrend)
         entry_points, exit_points, roi = backtest_supertrend(df)
-        roi=roi*100/(100000)
+        roi=((roi-100000)*100)/(100000)
         st.write(f'Total profit: {roi}')
         
 
