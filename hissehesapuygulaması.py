@@ -34,22 +34,22 @@ hisse_input = st.selectbox('Hisse',tickers_all,index=38,help='Analiz Etmek İste
 hisse_adi = hisse_input
 
 if hisse_adi:
-# hisse_adi değişkenini url1 değişkeninde hisse parametresine atayın
-url1="https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/sirket-karti.aspx?hisse="+hisse_adi
-#time.sleep(0.01)
-# web sitesinden yıl ve dönem bilgilerini çekmek için BeautifulSoup kullanın
-r1=requests.get(url1)
-s1=BeautifulSoup(r1.text, "html.parser")
-secim=s1.find("select", id="ddlMaliTabloFirst")
-secim2=s1.find("select", id="ddlMaliTabloGroup")
-
-#print(secim2)
-
-# yıl ve dönem bilgilerini listelere atayın
-grup=[]
-tarihler=[]
-yıllar=[]
-donemler=[]
+  # hisse_adi değişkenini url1 değişkeninde hisse parametresine atayın
+  url1="https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/sirket-karti.aspx?hisse="+hisse_adi
+  #time.sleep(0.01)
+  # web sitesinden yıl ve dönem bilgilerini çekmek için BeautifulSoup kullanın
+  r1=requests.get(url1)
+  s1=BeautifulSoup(r1.text, "html.parser")
+  secim=s1.find("select", id="ddlMaliTabloFirst")
+  secim2=s1.find("select", id="ddlMaliTabloGroup")
+  
+  #print(secim2)
+  
+  # yıl ve dönem bilgilerini listelere atayın
+  grup=[]
+  tarihler=[]
+  yıllar=[]
+  donemler=[]
 
 # try to find the elements with BeautifulSoup
 try:
