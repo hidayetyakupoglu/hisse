@@ -605,8 +605,8 @@ elif operation == "4. Çeyrek Bilanço Hisse Oranları-12 Aylık":
  
 
 else:
-st.write(":arrow_up:","Lütfen Yukarıdaki Alana Hisse Yazınız",":arrow_up:")
-st.write("(Not: Bankalar ve Faktöring Şirketleri Dahil Değildir)")
+  st.write(":arrow_up:","Lütfen Yukarıdaki Alana Hisse Yazınız",":arrow_up:")
+  st.write("(Not: Bankalar ve Faktöring Şirketleri Dahil Değildir)")
 
 
 
