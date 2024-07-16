@@ -180,6 +180,8 @@ if page == "TEKNİK":
     plt.ylabel("Fiyat", fontsize=15, color="black")
     plt.title("Gelecek Fiyat Tahminleri", fontsize=17, color="black")
     plt.legend()
+    fig_html = mpld3.fig_to_html(fig)
+    components.html(fig_html, height=500)
     figs.append(fig)
     
     
