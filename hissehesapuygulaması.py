@@ -36,7 +36,7 @@ with st.container():
         Hour_btn = st.button('60 Dk. Analiz')
     with col3:
         FiveM_btn = st.button('5 Dk. Analiz')
-ticker=user_input
+
 
 hisse_adi = hisse_input
 
