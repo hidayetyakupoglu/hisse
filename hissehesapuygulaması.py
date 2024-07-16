@@ -922,7 +922,7 @@ if page == "TEMEL":
     
     else:
      
-      st.write("(Not: Bankalar ve Faktöring Şirketleri Dahil Değildir)")
+      
     
     
     
