@@ -112,7 +112,7 @@ if page == "AL-SAT":
     st.markdown("""
     ## AL-SAT Sayfası
     Bu sayfada, BIST 100 endeksindeki hisse senetleri için Supertrend göstergesi kullanarak "Al" veya "Sat" sinyalleri oluşturabilirsiniz.
-    "TARAMAYI YAP" butonuna tıklayarak tarama işlemini başlatabilirsiniz.
+    butonlara tıklayarak tarama işlemini başlatabilirsiniz.
     """)
     ticker = st.text_input("Hisse Senedi Göstergesi")
     ticker = ticker.upper()
@@ -120,7 +120,7 @@ if page == "AL-SAT":
     if ticker == "":
         ticker = "XU100.IS"
     # Girilen simgeyi görüntüle
-    st.write("**BIST100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
+    st.write("**BIST100 için örnek sembol girişi:** **ASELS.IS**, **ULKER.IS** **vb.**")
     if st.button("SEÇİLİ HİSSE İÇİN SUPERTREND BACKTEST YAP"): 
      
         df = yf.download(ticker, start='2024-01-01')
