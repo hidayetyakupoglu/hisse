@@ -8,7 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
-import yfinance as yf
+
 
   
 tabs= ["TEMEL","TEKNİK","AL-SAT"]
