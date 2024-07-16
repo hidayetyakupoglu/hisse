@@ -70,7 +70,7 @@ tabs= ["TEMEL","TEKNİK","AL-SAT"]
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 
 if page == "AL-SAT":
-    if st.button("TARAMAYI YAP-2"):     
+    if st.button("DURUM DEĞİŞTİREN HİSSELERİ TARA"):     
         signals = []
         for symbol in bist100:
             try:
@@ -108,7 +108,7 @@ if page == "AL-SAT":
 
         
         
-    if st.button("TARAMAYI YAP"):
+    if st.button("TÜM BİST 100 HİSSELERİNİ TARA"):
         signals = []
         for symbol in bist100:
             try:
