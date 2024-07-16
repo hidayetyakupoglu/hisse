@@ -393,7 +393,7 @@ if page == "TEMEL":
     
     # Kullanıcıdan hisse senedi adı almak için input fonksiyonu kullanın
     #hisse_adi = input("Hisse Adı : ").upper()
-    hisse_input = st.text_input("**Hisse Adı (Sadece Borsadaki Kısaltma Adını Girin):**").upper()
+    hisse_input = st.text_input("**Hisse Adı (Sembol adı: ASELS,ULKER vb):**").upper()
     hisse_adi = hisse_input
     
     if hisse_adi:
@@ -504,8 +504,7 @@ if page == "TEMEL":
         # skip the iteration
         #continue
     
-      st.write(" İş Yatırım Sayfası İçin Tıklayın: [link](https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/default.aspx)")
-      st.write(" Tradingview Grafik Sayfası İçin Tıklayın: [link](https://tr.tradingview.com/chart/)")
+
     
     
     
