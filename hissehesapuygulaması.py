@@ -166,15 +166,7 @@ if hisse_adi:
 #with sidebar:
 
 
-    #st.write(f":red[Not: Hisse verilerini kontrol ediniz. Eksik veri nedeniyle altta kırmızı alanda hata mesajı çıkmaktadır]")
-  #operation = st.selectbox("[ORTALAMA HEDEF FİYAT]")
-      fk_hedef_fiyat_1 = c3_1 / c10_1 * c12_1
-      pd_hedef_fiyat_1 = c3_1 / c11_1 * c13_1
-      ozsermaye_hf_1 = (c7_1/c8_1)*10/c11_1*c3_1
-      odenmis_hedef_fiyat_1 = (c7_1 / c4_1) * c10_1
-      c21_1 = (c7_1*7)+(c8_1*0.5)
-      potansiyel_fiyat_1 = c21_1/c4_1
-      ortalama_hesap_1 = ( fk_hedef_fiyat_1 + pd_hedef_fiyat_1 + odenmis_hedef_fiyat_1 + ozsermaye_hf_1 + potansiyel_fiyat_1 ) / 5
+   
     #if operation == "ORTALAMA HEDEF FİYAT":
     #st.write(ortalama_hesap)
     #if ortalama_hesap < kapanıs :
