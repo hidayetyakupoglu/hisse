@@ -409,7 +409,7 @@ if hisse_adi:
     st.write(f":blue[**ÖZSERMAYE KARLILIĞINA GÖRE HEDEF FİYAT**]: {ozsermaye_hf:,.2f}")
     st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap:,.2f}")
     st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")    
-  """
+
   elif operation == "BİR ÇEYREK SONRAKİ HEDEF FİYATI TAHMİNİ":  
     c7_y = c7+(c7-c7_2)
     #c7_3 = c7+c6 ## Yılsonu Net Kar Tahmini
@@ -549,7 +549,7 @@ if hisse_adi:
     st.write(f":blue[**ÖZSERMAYE KARLILIĞINA GÖRE HEDEF FİYAT**]: {ozsermaye_hf:,.2f}")
     st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap:,.2f}")
     st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")    
-  """    
+ 
   #if operation == "ORTALAMA HEDEF FİYAT":
   #st.write(ortalama_hesap)
   #if ortalama_hesap < kapanıs :
