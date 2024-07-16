@@ -10,8 +10,7 @@ import pandas as pd
 #import investpy
 import numpy as np
 import yfinance as yf
-import math
-import matplotlib.pyplot as plt
+
 plt.style.use('fivethirtyeight')
 
 
