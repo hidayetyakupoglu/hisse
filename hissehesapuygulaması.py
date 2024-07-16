@@ -380,7 +380,9 @@ if hisse_adi:
   #st.write("**HİSSE HEDEF FİYAT HESAPLAYICI**")
   st.subheader(":two:**HİSSE HEDEF FİYAT HESAPLAYICI**", divider='rainbow')
 
-  operation = st.selectbox(":blue[**HİSSE FİYAT HESAPLAMARI İÇİN İŞLEM SEÇİN:**]", ["İŞLEM SEÇİN", "GÜNCEL BİLANÇOYA GÖRE HİSSE FİYATI", "BİR ÇEYREK SONRAKİ HEDEF FİYATI TAHMİNİ", "1 YIL SONRAKİ HİSSE HEDEF FİYATI TAHMİNİ", "1. Çeyrek Bilanço Hisse Oranları-3 Aylık", "2. Çeyrek Bilanço Hisse Oranları-6 Aylık", "3. Çeyrek Bilanço Hisse Oranları-9 Aylık", "4. Çeyrek Bilanço Hisse Oranları-12 Aylık"])
+  operation = st.selectbox(":blue[**GÜNCEL BİLANÇOYA GÖRE HİSSE FİYATI:**]", ["GÜNCEL BİLANÇOYA GÖRE HİSSE FİYATI"])
+
+  #operation = st.selectbox(":blue[**HİSSE FİYAT HESAPLAMARI İÇİN İŞLEM SEÇİN:**]", ["İŞLEM SEÇİN", "GÜNCEL BİLANÇOYA GÖRE HİSSE FİYATI", "BİR ÇEYREK SONRAKİ HEDEF FİYATI TAHMİNİ", "1 YIL SONRAKİ HİSSE HEDEF FİYATI TAHMİNİ", "1. Çeyrek Bilanço Hisse Oranları-3 Aylık", "2. Çeyrek Bilanço Hisse Oranları-6 Aylık", "3. Çeyrek Bilanço Hisse Oranları-9 Aylık", "4. Çeyrek Bilanço Hisse Oranları-12 Aylık"])
   #if operation == "Tüm Hedef Fiyatları Göster":
   if operation == "İŞLEM SEÇİN":
     st.write(f"İŞLEM SEÇİN")
