@@ -15,8 +15,6 @@ import yfinance as yf
 tabs= ["TEMEL","TEKNİK","AL-SAT"]
 
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
-       st.sidebar.title("İletişim Bilgileri")
-       st.sidebar.subheader("Yazar:")
        st.sidebar.write("Hidayet Yakupoğlu")
 if page == "TEMEL":
 
