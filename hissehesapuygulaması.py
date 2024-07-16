@@ -10,18 +10,14 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 
-def main():
-    st.sidebar.title("İletişim Bilgileri")
-    st.sidebar.subheader("Yazar:")
-    st.sidebar.write("Hidayet Yakupoğlu")
 
-if __name__ == "__main__":
-    main
     
 tabs= ["TEMEL","TEKNİK","AL-SAT"]
 
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
-
+       st.sidebar.title("İletişim Bilgileri")
+       st.sidebar.subheader("Yazar:")
+       st.sidebar.write("Hidayet Yakupoğlu")
 if page == "TEMEL":
 
     #streamlit.config.theme.base = "dark"
