@@ -32,8 +32,8 @@ if page == "TEKNİK":
     if ticker == "":
         ticker = "XU100.IS"
     # Girilen simgeyi görüntüle
-    st.write("**BIST100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
-    st.write("**S&P500 için örnek sembol girişi:** **^GSPC**, **NVDA**, **TSLA**, **AMZN** **etc.**")
+    st.write("**BIST100 için örnek sembol girişi:** **ASELS.IS**, **ULKER.IS** **vb.**")
+    
     
     # Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini aldım
     df = si.get_data(ticker)
