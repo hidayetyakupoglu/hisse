@@ -59,7 +59,11 @@ if page == "TEKNİK":
     
     # İleriki hesaplamalar için 'close' sütununu seçtim
     close_for_calc = df['close'][-DATA_LEN:]
-    
+
+    # Calculate EMA for 8, 21, and 50 days
+    ema_8 = df['close'].ewm(span=8, adjust=False).mean()[-DATA_LEN:].to_list()
+    ema_21 = df['close'].ewm(span=21, adjust=False).mean()[-DATA_LEN:].to_list()
+    ema_50 = df['close'].ewm(span=50, adjust=False).mean()[-DATA_LEN:].to_list()
     
     st.text("");st.text("");st.text("")
     
@@ -69,14 +73,16 @@ if page == "TEKNİK":
     
     # Kapanış Fiyatı Görselleştirme
     fig = plt.figure()
-    plt.title(f"{ticker} için kapanış fiyatları: {ticker} şu anda {round(close_prices[len(close_prices) - 1], 2)}", fontsize=15,color="black")
-    plt.xlabel("Gün Sonrası", fontsize=12,color="black")
-    plt.ylabel("Fiyat", fontsize=12,color="black")
+    plt.title(f"{ticker} için kapanış fiyatları ve EMA'lar: {ticker} şu anda {round(close_prices[-1], 2)}", fontsize=15, color="black")
+    plt.xlabel("Gün Sonrası", fontsize=12, color="black")
+    plt.ylabel("Fiyat", fontsize=12, color="black")
     plt.plot(close_prices, label='Kapanış Fiyatı')
+    plt.plot(ema_8, label='8 Günlük EMA')
+    plt.plot(ema_21, label='21 Günlük EMA')
+    plt.plot(ema_50, label='50 Günlük EMA')
     plt.legend()
     fig_html = mpld3.fig_to_html(fig)
     components.html(fig_html, height=500)
-    figs.append(fig)
     
     
     st.markdown("## Gelecek Fiyat Tahminleri")
