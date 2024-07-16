@@ -164,8 +164,7 @@ if hisse_adi:
         #st.write("Hesaplama Yapılamadı")
     
 #with sidebar:
-    st.subheader(f":blue[**Manuel Hisse Hesaplayıcı**]", divider="rainbow")
-    st.write("Hisse Hedef Fiyat Hesaplayıcı")
+
 # Hisse Fiyatı
     c3_1 = st.number_input("Hisse Fiyatı:" )
 # Hisse F/K Oranı
