@@ -24,7 +24,14 @@ st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI]** :", divider='rainbow')
 #hisse_adi = input("Hisse Adı : ").upper()
 hisse_input = st.text_input("**Hisse Adı (Sadece Borsadaki Kısaltma Adını Girin):**").upper()
 hisse_adi = hisse_input
-
+with st.container():
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        daily_btn = st.button('Günlük Analiz')
+    with col2:
+        Hour_btn = st.button('60 Dk. Analiz')
+    with col3:
+        FiveM_btn = st.button('5 Dk. Analiz')
 if hisse_adi:
   # hisse_adi değişkenini url1 değişkeninde hisse parametresine atayın
   url1="https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/sirket-karti.aspx?hisse="+hisse_adi
