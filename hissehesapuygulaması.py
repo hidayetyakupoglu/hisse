@@ -122,12 +122,16 @@ if page == "AL-SAT":
     st.write("**BIST100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
     if st.button("SEÇİLİ HİSSE İÇİN SUPERTREND BACKTEST YAP"): 
      
-        #df = si.get_data(ticker)
         df = yf.download(ticker, start='2024-01-01')
         supertrend = Supertrend(df)
         df = df.join(supertrend)
         entry_points, exit_points, roi = backtest_supertrend(df)
-        st.table(roi)
+        st.write(f'Total profit: {roi}')
+        st.write(f'Entry points: {entry_points}')
+        st.write(f'Exit points: {exit_points}')
+
+
+            
 
     if st.button("DURUM DEĞİŞTİREN HİSSELERİ TARA"):     
         signals = []
