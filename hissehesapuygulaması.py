@@ -117,7 +117,7 @@ if page == "AL-SAT":
     ticker = ticker.upper()
     # Eğer bir simge girilmemişse, varsayılan olarak "BIST100" olarak ayarladım
     if ticker == "":
-    ticker = "XU100.IS"
+        ticker = "XU100.IS"
     # Girilen simgeyi görüntüle
     st.write("**BIST100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
     if st.button("SEÇİLİ HİSSE İÇİN SUPERTREND BACKTEST YAP"): 
