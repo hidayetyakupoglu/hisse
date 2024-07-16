@@ -382,7 +382,7 @@ if page == "TEMEL":
 
     #streamlit.config.theme.base = "dark"
     st.title("**HİSSE TEMEL ANALİZ**")
-    st.subheader(":chart:**:blue[hisse analiz]** :chart:", divider='blue')
+    st.subheader(":blue[hisse analiz]** :chart:", divider='blue')
     #st.set_page_config(
     # page_title="Hisse Hedef Fiyat Hesaplayıcı",
     #  page_icon="https://example.com/icon.png",
@@ -921,7 +921,7 @@ if page == "TEMEL":
        
     
     else:
-      st.write(":arrow_up:","Lütfen Yukarıdaki Alana Hisse Yazınız",":arrow_up:")
+     
       st.write("(Not: Bankalar ve Faktöring Şirketleri Dahil Değildir)")
     
     
