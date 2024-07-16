@@ -49,6 +49,42 @@ def Supertrend(df, atr_period=10, multiplier=3):
     result_df = pd.DataFrame({'Supertrend': supertrend, 'Lowerband': lower_band, 'Upperband': upper_band}, index=df.index)
     
     return result_df
+def backtest_supertrend(df, initial_investment=100000, trading_commission=0):
+    is_uptrend = df['Supertrend']
+    close = df['Adj Close']
+
+    position = False
+    total_equity = initial_investment
+    shares = 0
+    entry_points = []
+    exit_points = []
+
+    for i in range(2, len(df)):
+
+        if not position and is_uptrend.iloc[i]:
+            shares_float = total_equity / close.iloc[i]
+            shares_rounded = math.floor(shares_float)
+            shares = shares_rounded
+            total_equity -= shares * close.iloc[i]
+            entry_points.append((i, close.iloc[i]))
+            position = True
+            print(f'Buy {shares} shares at {round(close.iloc[i],2)} on {df.index[i].strftime("%d/%m/%Y")}')
+
+        elif position and not is_uptrend.iloc[i]:
+            total_equity += shares * close.iloc[i] - trading_commission
+            exit_points.append((i, close.iloc[i]))
+            position = False
+            print(f'Sell at {round(close.iloc[i],2)} on {df.index[i].strftime("%d/%m/%Y")}')
+
+    total_equity += shares * close.iloc[i] - trading_commission if position else 0
+
+    earning = round(total_equity - initial_investment, 2)
+    roi = round(earning / initial_investment*100, 1)
+    print("*" * 30)
+    print(f'Total profit after investing {initial_investment}₺ is {round(earning,2)}₺\nReturn on Investment (ROI): %{roi}')
+    print("*" * 30)
+    return entry_points, exit_points, total_equity
+
 
 # Define the symbols of BIST 100
 bist100 = ['AEFES.IS', 'AGHOL.IS', 'AKBNK.IS', 'AKCNS.IS', 'AKENR.IS', 'AKGRT.IS', 'AKSA.IS', 'AKSEN.IS',
@@ -77,8 +113,14 @@ if page == "AL-SAT":
     Bu sayfada, BIST 100 endeksindeki hisse senetleri için Supertrend göstergesi kullanarak "Al" veya "Sat" sinyalleri oluşturabilirsiniz.
     "TARAMAYI YAP" butonuna tıklayarak tarama işlemini başlatabilirsiniz.
     """)
-    col1, col2 = st.columns(2)  # Create two columns
-    with col1:
+        if st.button("SEÇİLİ HİSSE İÇİN SUPERTREND BACKTEST YAP"): 
+            symbol = st.text_input("Hisse Senedi Göstergesi") 
+            df = yf.download(symbol, start='2024-01-01')
+            supertrend = Supertrend(df)
+            df = df.join(supertrend)
+            entry_points, exit_points, roi = backtest_supertrend(df)
+            st.table(roi)
+
         if st.button("DURUM DEĞİŞTİREN HİSSELERİ TARA"):     
             signals = []
             for symbol in bist100:
@@ -86,7 +128,7 @@ if page == "AL-SAT":
                     df = yf.download(symbol, start='2024-01-01')
                     supertrend = Supertrend(df)
                     df = df.join(supertrend)
-            
+                 
                     # Son 5 periyot için al/sat sinyallerini kontrol et
                     last_5_signals = []
                     for i in range(1, 11):
@@ -115,7 +157,7 @@ if page == "AL-SAT":
             
             st.table(sat_to_al_symbols_sorted)
              
-    with col2:       
+          
         if st.button("TÜM BİST 100 HİSSELERİNİ TARA"):
             signals = []
             for symbol in bist100:
