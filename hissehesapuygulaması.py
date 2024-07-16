@@ -72,6 +72,11 @@ page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 
 
 if page == "AL-SAT":
+    st.markdown("""
+    ## AL-SAT Sayfası
+    Bu sayfada, BIST 100 endeksindeki hisse senetleri için Supertrend göstergesi kullanarak "Al" veya "Sat" sinyalleri oluşturabilirsiniz.
+    "TARAMAYI YAP" butonuna tıklayarak tarama işlemini başlatabilirsiniz.
+    """)
     col1, col2 = st.columns(2)  # Create two columns
     with col1:
         if st.button("DURUM DEĞİŞTİREN HİSSELERİ TARA"):     
