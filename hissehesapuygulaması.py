@@ -653,14 +653,14 @@ elif page == "TEKNİK ANALİZ":
           
               for i in range(1, len(df.index)):
 								  
-								     if close.iloc[i] > upper_band.iloc[i-1]:
+		     if close.iloc[i] > upper_band.iloc[i-1]:
                         supertrend.iloc[i] = True
-							       elif close.iloc[i] < lower_band.iloc[i-1]:
+		     elif close.iloc[i] < lower_band.iloc[i-1]:
                           supertrend.iloc[i] = False
-										 else:
+		     else:
                            supertrend.iloc[i] = supertrend.iloc[i-1]
 
-											     if supertrend.iloc[i] and lower_band.iloc[i] < lower_band.iloc[i-1]:
+			   if supertrend.iloc[i] and lower_band.iloc[i] < lower_band.iloc[i-1]:
                               lower_band.iloc[i] = lower_band.iloc[i-1]
                            if not supertrend.iloc[i] and upper_band.iloc[i] > upper_band.iloc[i-1]:
                               upper_band.iloc[i] = upper_band.iloc[i-1]
@@ -668,7 +668,7 @@ elif page == "TEKNİK ANALİZ":
                      upper_band.iloc[i] = np.nan if supertrend.iloc[i] else upper_band.iloc[i]
                      lower_band.iloc[i] = np.nan if not supertrend.iloc[i] else lower_band.iloc[i]			 
 							
-						result_df = pd.DataFrame({'Supertrend': supertrend, 'Lowerband': lower_band, 'Upperband': upper_band}, index=df.index)
+	    result_df = pd.DataFrame({'Supertrend': supertrend, 'Lowerband': lower_band, 'Upperband': upper_band}, index=df.index)
             return result_df
                
             df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
