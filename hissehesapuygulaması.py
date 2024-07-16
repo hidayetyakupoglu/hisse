@@ -108,6 +108,9 @@ page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 st.sidebar.title("İletişim Bilgileri")
 st.sidebar.subheader("Yazar:")
 st.sidebar.write("Hidayet YAKUPOĞLU")
+st.sidebar.subheader("E-posta:")
+st.sidebar.write("hidayetyakupoglu@gmail.com")
+
 
 
 if page == "AL-SAT":
