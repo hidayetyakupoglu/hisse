@@ -11,8 +11,11 @@ import numpy as np
 import yfinance as yf
 from yahoo_fin import stock_info as si
 import matplotlib.pyplot as plt
+import mpld3
+import streamlit.components.v1 as components
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
+
   
 tabs= ["TEMEL","TEKNİK","AL-SAT"]
 
