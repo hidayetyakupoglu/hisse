@@ -23,7 +23,7 @@ st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI]** :", divider='rainbow')
 # Kullanıcıdan hisse senedi adı almak için input fonksiyonu kullanın
 #hisse_adi = input("Hisse Adı : ").upper()
 
-st.markdown(subheader, unsafe_allow_html=True)
+
 
 ticker_all_List = pd.read_csv("bist.csv")
 tickers_all=ticker_all_List["Ticker"]
