@@ -143,14 +143,7 @@ if hisse_adi:
     c24 = st.number_input(f"**Geçmiş Dönem Tutarı:**", value=None, placeholder="Geçmiş dönem tutarını bu alana yazın")
     #c22 = st.number_input(f"**Geçmiş Dönem Özkaynaklar (Özsermaye):**", value=None, placeholder="Özkaynaklar (Özsermaye) tutarını bu alana yazın")
     #c24 = st.number_input(f"**Geçmiş Dönem Net Kar:**", value=None, placeholder="Geçmiş Dönem Net Kar tutarını bu alana yazın")
-    islem_1 = st.selectbox("Gelecek Özkaynak ve Net Kar Tahmini Miktarı:", ["Gelecek Dönem Tahmini Miktarı"])
-    if islem_1 == "Gelecek Dönem Tahmini Miktarı":
-      # Ensure both c8 and c22 have valid numerical values before calculation
-        if c22 is not None and c24 is not None:
-            c25 = c22 + (c22 - c24)  # Calculate the future equity amount
-            st.write(f"**Gelecek Dönem Tahmini Miktarı:** {c25}")
-        else:
-            st.write("Hesaplama için Güncel ve Geçmiş Dönem tutarlarını giriniz.")
+    
     #else:
         #st.write("Hesaplama Yapılamadı")
     #elif islem_1 == " Gelecek Net Kar Tahmini Miktarı":
