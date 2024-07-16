@@ -140,9 +140,9 @@ if hisse_adi:
     #continue
 
   #st.write(" İş Yatırım Sayfası İçin Tıklayın: [link](https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/default.aspx)")
-  st.write(" İş Yatırım Sayfası İçin Tıklayın: [link](url1)")
+
   
-  st.write(" Tradingview Grafik Sayfası İçin Tıklayın: [link](https://tr.tradingview.com/chart/)")
+  #st.write(" Tradingview Grafik Sayfası İçin Tıklayın: [link](https://tr.tradingview.com/chart/)")
   
 
   #Gelecek Özkaynak Tahmini Miktarı
