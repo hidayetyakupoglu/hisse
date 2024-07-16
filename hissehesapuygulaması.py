@@ -126,6 +126,21 @@ if page == "AL-SAT":
         df = yf.download(ticker, start='2024-01-01')
         supertrend = Supertrend(df)
         df = df.join(supertrend)
+        plt.figure(figsize=(12,12))
+
+        plt.subplot(2, 1, 1)
+        plt.plot(df['Adj Close'], label='Kapanıs fiyatı')
+        plt.plot(df['Lowerband'], color='green', label='UST BAND')
+        plt.plot(df['Upperband'], color='red', label='ALT BAND')
+        plt.legend()
+        
+        plt.subplot(2, 1, 2)
+        plt.plot(df['ATR'], color='purple', label='ATR')
+        plt.legend()
+        plt.suptitle(f'Supertrend Analizi= {symbol} ', fontsize=16, y=0.95)
+        plt.show()
+
+        
         entry_points, exit_points, roi = backtest_supertrend(df)
         roi=((roi-100000)*100)/(100000)
         st.write(f'2024 yılı başından bu yana Toplam Kar %: {roi}')
