@@ -1,12 +1,4 @@
-pandas
-numpy==1.22.0
 streamlit
-matplotlib
-tensorflow
-scikit-learn
-yahoo-fin
-protobuf
-mpld3
-pandas_ta
-fpdf
-streamlit-option-menu
+bs4
+pandas
+requests
