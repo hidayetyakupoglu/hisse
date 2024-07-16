@@ -15,6 +15,7 @@ import mpld3
 import streamlit.components.v1 as components
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
+import math
 
 def Supertrend(df, atr_period=10, multiplier=3):
     high, low, close = df['High'], df['Low'], df['Adj Close']
