@@ -25,7 +25,7 @@ st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI]** :", divider='rainbow')
 
 st.markdown(subheader, unsafe_allow_html=True)
 
-ticker_all_List = pd.read_csv("docs/bist.csv")
+ticker_all_List = pd.read_csv("bist.csv")
 tickers_all=ticker_all_List["Ticker"]
 hisse_input = st.selectbox('Hisse',tickers_all,index=161,help='Analiz Etmek İstediğiniz Hisseyi Seçebilirsiniz.')
 with st.container():
