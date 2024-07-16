@@ -618,11 +618,7 @@ if page == "FİNANSAL":
     st.write("(Not: Bankalar ve Faktöring Şirketleri Dahil Değildir)")
 
 elif page == "TEKNİK ANALİZ":
- st.markdown("""hazırlanıyor...""")
- button=st.button("Analiz")
- if button==True:
-     with st.spinner("Lütfen Bekleyin..."):
-
+  st.markdown("""hazırlanıyor...""")
 
 elif page == "HAKKINDA":
 
