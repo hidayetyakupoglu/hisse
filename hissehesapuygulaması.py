@@ -7,7 +7,7 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import investpy
+#import investpy
 import numpy as np
 import yfinance as yf
 
