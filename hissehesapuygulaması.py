@@ -14,12 +14,6 @@ import yfinance as yf
 
 
 
-tabs= ["FİNANSAL","TEKNİK ANALİZ","HAKKINDA"]
-
-page = st.sidebar.radio("📈BIST 100",tabs)
-
-if page == "FİNANSAL":
-
   #streamlit.config.theme.base = "dark"
   st.title("**BIST HİSSE FİYAT **")
   st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI*by hidayet_yakupoglu]** :", divider='red')
@@ -617,17 +611,7 @@ if page == "FİNANSAL":
     st.write(":arrow_up:","Lütfen Yukarıdaki Alana Hisse Yazınız",":arrow_up:")
     st.write("(Not: Bankalar ve Faktöring Şirketleri Dahil Değildir)")
 
-elif page == "TEKNİK ANALİZ":
-  st.markdown("""hazırlanıyor...""")
 
-elif page == "HAKKINDA":
-
- st.markdown("""Developed By ***Hidayet YAKUPOGLU*** v1.0 2024 ***""")
- link = 'https://www.linkedin.com/in/hidayet-yakupo%C4%9Flu-35122a2b/'
- st.write(link)
- st.markdown("""Contact: hidayetyakupoglu@gmail.com""")
-    #if __name__ == "__main__":
-    #  st.run()
 
 
 #!streamlit run deneme.py & npx localtunnel --port 8501
