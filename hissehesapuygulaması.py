@@ -98,13 +98,12 @@ if page == "AL-SAT":
         al_to_sat_symbols_sorted = al_to_sat_symbols.sort_values('Symbol')
         sat_to_al_symbols_sorted = sat_to_al_symbols.sort_values('Symbol')
         
-        st.markdown("*" * 60)
         st.markdown(" SAT SİNYALİNE DÖNEN HİSSELER ")
-        st.markdown("*" * 60)
+        
         st.table(al_to_sat_symbols_sorted)
-        st.markdown("*" * 60)
+      
         st.markdown(" AL SİNYALİNE DÖNEN HİSSELER ")
-        st.markdown("*" * 60)
+        
         st.table(sat_to_al_symbols_sorted)
 
         
