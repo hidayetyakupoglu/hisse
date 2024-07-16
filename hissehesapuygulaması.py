@@ -92,7 +92,22 @@ if page == "AL-SAT":
                 print(f"Error processing {symbol}: {e}")
         
         df_signals = pd.DataFrame(signals, columns=['Symbol', 'Son 10 Sinyal(t,t-1,...)'])
-        st.table(df_signals)
+        sat_to_al_symbols = df_signals[df_signals['Son 10 Sinyal(t,t-1,...)'].str.endswith('SAT') & df_signals['Son 10 Sinyal(t,t-1,...)'].str.contains('AL ')]
+        al_to_sat_symbols = df_signals[df_signals['Son 10 Sinyal(t,t-1,...)'].str.endswith('AL ') & df_signals['Son 10 Sinyal(t,t-1,...)'].str.contains('SAT')]
+        # Bu hisseleri sırala
+        al_to_sat_symbols_sorted = al_to_sat_symbols.sort_values('Symbol')
+        sat_to_al_symbols_sorted = sat_to_al_symbols.sort_values('Symbol')
+        
+        print("*" * 60)
+        print(" SAT SİNYALİNE DÖNEN HİSSELER ")
+        print("*" * 60)
+        st.table(al_to_sat_symbols_sorted)
+        print("*" * 60)
+        print(" AL SİNYALİNE DÖNEN HİSSELER ")
+        print("*" * 60)
+        st.table(sat_to_al_symbols_sorted)
+
+        
         
     if st.button("TARAMAYI YAP"):
         signals = []
