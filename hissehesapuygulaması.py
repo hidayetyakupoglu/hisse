@@ -11,7 +11,7 @@ import pandas as pd
 
 #streamlit.config.theme.base = "dark"
 st.title("**BIST HİSSE FİYAT **")
-st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI*by hidayet_yakupoglu]** :", divider='rainbow')
+st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI*by hidayet_yakupoglu]** :", divider='red')
 #st.set_page_config(
 # page_title="Hisse Hedef Fiyat Hesaplayıcı",
 #  page_icon="https://example.com/icon.png",
@@ -235,7 +235,7 @@ if hisse_adi:
   # Get the stock name from the user
   stock_name = hisse_adi #input("Hisse Adı Giriniz: ").upper()
 
-  st.subheader(":one:**:blue[HİSSE VERİLERİ]**", divider='rainbow')
+  st.subheader(":one:**:blue[HİSSE VERİLERİ]**", divider='red')
   
   if stock_name:
       # Check if the input is in the dictionary
@@ -378,7 +378,7 @@ if hisse_adi:
 
   # HİSSE HESAPLAYICISI SELECT BOX İLE F/K VE PD/DD ORANLARINA GÖRE HESAPLAMA
   #st.write("**HİSSE HEDEF FİYAT HESAPLAYICI**")
-  st.subheader(":two:**HİSSE HEDEF FİYAT HESAPLAYICI**", divider='rainbow')
+  st.subheader(":two:**HİSSE HEDEF FİYAT HESAPLAYICI**", divider='red')
 
   #operation = st.selectbox(":blue[**GÜNCEL BİLANÇOYA GÖRE HİSSE FİYATI:**]", ["GÜNCEL BİLANÇOYA GÖRE HİSSE FİYATI"])
 
