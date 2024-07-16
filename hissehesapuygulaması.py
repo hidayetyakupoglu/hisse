@@ -620,7 +620,10 @@ if page == "FİNANSAL":
 elif page == "TEKNİK ANALİZ":
  st.markdown("""hazırlanıyor...""")
  button=st.button("Analiz")
- bist100 = ['AEFES.IS', 'AGHOL.IS', 'AKBNK.IS', 'AKCNS.IS', 'AKENR.IS', 'AKGRT.IS', 'AKSA.IS', 'AKSEN.IS',
+ if button==True:
+     with st.spinner("Lütfen Bekleyin..."):
+
+     bist100 = ['AEFES.IS', 'AGHOL.IS', 'AKBNK.IS', 'AKCNS.IS', 'AKENR.IS', 'AKGRT.IS', 'AKSA.IS', 'AKSEN.IS',
     'ALARK.IS', 'ALGYO.IS', 'ARCLK.IS', 'ASELS.IS', 'AVOD.IS', 'BAGFS.IS', 'BANVT.IS', 'BIMAS.IS',
     'BIZIM.IS', 'BRISA.IS', 'BRKSN.IS', 'BOBET.IS','CCOLA.IS', 'CEMTS.IS', 'CIMSA.IS', 'CMENT.IS', 'CLEBI.IS',
     'DEVA.IS', 'DOHOL.IS', 'DOAS.IS', 'ECILC.IS', 'ECZYT.IS', 'EGSER.IS', 'EKGYO.IS', 'ENJSA.IS',
@@ -633,11 +636,7 @@ elif page == "TEKNİK ANALİZ":
     'TOASO.IS', 'TRGYO.IS', 'TRKCM.IS', 'TSKB.IS', 'TTKOM.IS', 'TTRAK.IS', 'TUPRS.IS', 'ULKER.IS',
     'ULUSE.IS', 'VAKBN.IS', 'VESTL.IS', 'VESTN.IS', 'VKGYO.IS', 'YATAS.IS', 'YKGYO.IS', 'YKBNK.IS',
     'ZOREN.IS']
-  
-  if button==True:
-         with st.spinner("Lütfen Bekleyin..."):
-
-         def Supertrend(df, atr_period=10, multiplier=3):
+     def Supertrend(df, atr_period=10, multiplier=3):
             high, low, close = df['High'], df['Low'], df['Adj Close']
         
             true_range = pd.concat([high - low, high - close.shift(), close.shift() - low], axis=1).abs().max(axis=1)
