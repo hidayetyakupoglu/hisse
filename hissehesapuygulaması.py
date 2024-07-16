@@ -619,7 +619,8 @@ if page == "FİNANSAL":
 
 elif page == "TEKNİK ANALİZ":
  st.markdown("""hazırlanıyor...""")
-  bist100 = ['AEFES.IS', 'AGHOL.IS', 'AKBNK.IS', 'AKCNS.IS', 'AKENR.IS', 'AKGRT.IS', 'AKSA.IS', 'AKSEN.IS',
+ button=st.button("Analiz")
+ bist100 = ['AEFES.IS', 'AGHOL.IS', 'AKBNK.IS', 'AKCNS.IS', 'AKENR.IS', 'AKGRT.IS', 'AKSA.IS', 'AKSEN.IS',
     'ALARK.IS', 'ALGYO.IS', 'ARCLK.IS', 'ASELS.IS', 'AVOD.IS', 'BAGFS.IS', 'BANVT.IS', 'BIMAS.IS',
     'BIZIM.IS', 'BRISA.IS', 'BRKSN.IS', 'BOBET.IS','CCOLA.IS', 'CEMTS.IS', 'CIMSA.IS', 'CMENT.IS', 'CLEBI.IS',
     'DEVA.IS', 'DOHOL.IS', 'DOAS.IS', 'ECILC.IS', 'ECZYT.IS', 'EGSER.IS', 'EKGYO.IS', 'ENJSA.IS',
@@ -632,8 +633,8 @@ elif page == "TEKNİK ANALİZ":
     'TOASO.IS', 'TRGYO.IS', 'TRKCM.IS', 'TSKB.IS', 'TTKOM.IS', 'TTRAK.IS', 'TUPRS.IS', 'ULKER.IS',
     'ULUSE.IS', 'VAKBN.IS', 'VESTL.IS', 'VESTN.IS', 'VKGYO.IS', 'YATAS.IS', 'YKGYO.IS', 'YKBNK.IS',
     'ZOREN.IS']
-   button=st.button("Analiz")
-    if button==True:
+  
+  if button==True:
          with st.spinner("Lütfen Bekleyin..."):
 
          def Supertrend(df, atr_period=10, multiplier=3):
