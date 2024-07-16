@@ -72,7 +72,7 @@ page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 if page == "AL-SAT":
     if st.button("TARAMAYI YAP-2"):     
         signals = []
-        for symbol in bist30_symbols:
+        for symbol in bist100:
             try:
                 df = yf.download(symbol, start='2024-01-01')
                 supertrend = Supertrend(df)
