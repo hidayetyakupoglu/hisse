@@ -3,3 +3,7 @@ bs4
 pandas
 requests
 yfinance
+matplotlib
+tensorflow
+scikit-learn
+yahoo-fin
