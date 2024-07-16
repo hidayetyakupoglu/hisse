@@ -10,8 +10,8 @@ import pandas as pd
 
 
 #streamlit.config.theme.base = "dark"
-st.title("**HİSSE FİYAT HESAPLAYICISI**")
-st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI]** :", divider='rainbow')
+st.title("**BIST HİSSE FİYAT **")
+st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI*by hidayet_yakupoglu]** :", divider='rainbow')
 #st.set_page_config(
 # page_title="Hisse Hedef Fiyat Hesaplayıcı",
 #  page_icon="https://example.com/icon.png",
@@ -28,15 +28,6 @@ st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI]** :", divider='rainbow')
 ticker_all_List = pd.read_csv("bist.csv")
 tickers_all=ticker_all_List["Ticker"]
 hisse_input = st.selectbox('Hisse',tickers_all,index=161,help='Analiz Etmek İstediğiniz Hisseyi Seçebilirsiniz.')
-with st.container():
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        daily_btn = st.button('Günlük Analiz')
-    with col2:
-        Hour_btn = st.button('60 Dk. Analiz')
-    with col3:
-        FiveM_btn = st.button('5 Dk. Analiz')
-
 
 hisse_adi = hisse_input
 
