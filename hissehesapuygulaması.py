@@ -1,18 +1,15 @@
 
-#pip install streamlit
-
-#%%writefile deneme.py
-
-import streamlit as st
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-#import investpy
-import numpy as np
-import yfinance as yf
-
-
-
+  #pip install streamlit
+  
+  #%%writefile deneme.py
+  
+  import streamlit as st
+  import requests
+  from bs4 import BeautifulSoup
+  import pandas as pd
+  #import investpy
+  import numpy as np
+  import yfinance as yf
 
   #streamlit.config.theme.base = "dark"
   st.title("**BIST HİSSE FİYAT **")
@@ -610,6 +607,9 @@ import yfinance as yf
   else:
     st.write(":arrow_up:","Lütfen Yukarıdaki Alana Hisse Yazınız",":arrow_up:")
     st.write("(Not: Bankalar ve Faktöring Şirketleri Dahil Değildir)")
+
+
+
 
 
 
