@@ -135,11 +135,8 @@ if hisse_adi:
 
   st.write(" İş Yatırım Sayfası İçin Tıklayın: [link](https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/default.aspx)")
   st.write(" Tradingview Grafik Sayfası İçin Tıklayın: [link](https://tr.tradingview.com/chart/)")
-  
-  with st.sidebar:
-  
 
-    
+
 
   ### KODUN 2. KISMI BURADAN BAŞLIYOR
 
