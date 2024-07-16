@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 import yfinance as yf
-npNaN = np.nan
 import pandas_ta as pta
 import matplotlib.pyplot as plt
 import mpld3
