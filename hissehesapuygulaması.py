@@ -174,12 +174,7 @@ if hisse_adi:
     #else :
       #st.write(f"**TÜM HESAPLAMALARIN ORTALAMA FİYATI:** :green[{ortalama_hesap:,.2f}]")
     #elif operation == "TÜM HESAPLAMALARIN SONUÇLARINI GÖSTER":
-      st.write(f":blue[**F/K HEDEF FİYAT:**] {fk_hedef_fiyat_1:,.2f}")
-      st.write(f":blue[**PD/DD HEDEF FİYAT:**] {pd_hedef_fiyat_1:,.2f}")
-      st.write(f":blue[**ÖDENMİŞ SERMAYEYE GÖRE HEDEF FİYAT:**] {odenmis_hedef_fiyat_1:,.2f}")
-      st.write(f":blue[**ÖZKAYNAK (ÖZSERMAYE) KARLILIĞINA GÖRE HEDEF FİYAT**]: {ozsermaye_hf_1:,.2f}")
-      st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap_1:,.2f}")
-      st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {c3_1}")
+  
   #c22 = st.number_input(f"**Geçmiş Dönem Özkaynaklar (Özsermaye):**", value=None, placeholder="Özkaynaklar (Özsermaye) tutarını bu alana yazın") #{float(ozkaynaklar1):,.0f}")
   #c22 = float((ozkaynaklar_2).replace(",", "."))
   #st.write("Gelecek Özkaynak Tahmini Miktarı", c22)
