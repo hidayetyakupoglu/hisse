@@ -114,8 +114,15 @@ if page == "AL-SAT":
     "TARAMAYI YAP" butonuna tıklayarak tarama işlemini başlatabilirsiniz.
     """)
     if st.button("SEÇİLİ HİSSE İÇİN SUPERTREND BACKTEST YAP"): 
-        symbol = st.text_input("Hisse Senedi Göstergesi") 
-        df = yf.download(symbol, start='2024-01-01')
+        ticker = st.text_input("Hisse Senedi Göstergesi")
+        ticker = ticker.upper()
+        # Eğer bir simge girilmemişse, varsayılan olarak "BIST100" olarak ayarladım
+        if ticker == "":
+            ticker = "XU100.IS"
+        # Girilen simgeyi görüntüle
+        st.write("**BIST100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
+        df = si.get_data(ticker)
+       
         supertrend = Supertrend(df)
         df = df.join(supertrend)
         entry_points, exit_points, roi = backtest_supertrend(df)
