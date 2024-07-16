@@ -165,30 +165,7 @@ if hisse_adi:
     
 #with sidebar:
 
-# Hisse Fiyatı
-    c3_1 = st.number_input("Hisse Fiyatı:" )
-# Hisse F/K Oranı
-    c10_1 = float(st.number_input("Hisse F/K Oranı:"))
-# HİSSE PD/DD ORANI
-    c11_1 = st.number_input("Hisse PD/DD Oranı: ")
-# BİST100 /SEKTÖR GÜNCEL F/K ORANI
-    c12_1 = st.number_input("BİST100 / Sektör Güncel F/K Oranı: ")
-# BIST100 / Sektör Güncel P/D Oranı
-    c13_1 = float(st.number_input("BİST100 / Sektör Güncel PD/DD Oranı:"))
-# Ödenmiş Sermaye
-    c4_1 = st.number_input("Ödenmiş Sermaye: ")
-# Yıllık Net Kar
-    c7_1 = st.number_input("Yıllık Net Kar: ")
-# Özsermaye
-    c8_1 = st.number_input("Özkaynaklar (Özsermaye): ")
-    operation_manuel = st.selectbox(":blue[**HİSSE FİYAT HESAPLAMARI İÇİN İŞLEM SEÇİN:**]", ["İŞLEM SEÇİN","TÜM HESAPLAMALARIN SONUÇLARINI GÖSTER"])
-  #if operation == "Tüm Hedef Fiyatları Göster":
-    if operation_manuel == "İŞLEM SEÇİN":
-      st.write(f"İŞLEM SEÇİN")
-    elif operation_manuel == "TÜM HESAPLAMALARIN SONUÇLARINI GÖSTER":
-      c21_1 = (c7_1*7)+(c8_1*0.5)
-      potansiyel_fiyat_1 = c21_1/c4_1
-      st.write(f":blue[**POTANSİYEL DEĞERİNE GÖRE HİSSE FİYATI:**] {potansiyel_fiyat_1:,.2f}")
+
     #st.write(f":red[Not: Hisse verilerini kontrol ediniz. Eksik veri nedeniyle altta kırmızı alanda hata mesajı çıkmaktadır]")
   #operation = st.selectbox("[ORTALAMA HEDEF FİYAT]")
       fk_hedef_fiyat_1 = c3_1 / c10_1 * c12_1
