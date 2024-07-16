@@ -9,6 +9,13 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
+def main():
+    st.sidebar.title("İletişim Bilgileri")
+    st.sidebar.subheader("Yazar:")
+    st.sidebar.write("Hidayet Yakupoğlu")
+
+if __name__ == "__main__":
+    main()
 #streamlit.config.theme.base = "dark"
 st.title("**HİSSE FİYAT HESAPLAYICISI**")
 st.subheader(":chart:**:blue[BORSA HİSSE HESAPLAYICISI]** :chart:", divider='rainbow')
