@@ -28,10 +28,9 @@ tabs= ["TEMEL","TEKNİK","AL-SAT"]
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 
 if page == "TEKNİK":
-   figs=[]
+  figs=[]
 
-  st.markdown(""" ## Hisse Senedi Fiyat Analizi ve Tahmini  """,unsafe_allow_html=True)
-  st.markdown(""" 
+  
   ### Tüm stok ihtiyaçlarınızı tek bir yerde bulun
   Hisse senedi hareketini daha iyi anlamak için sadece birkaç teknik gösterge sağlamakla kalmıyor, aynı zamanda gelecekteki fiyatı tahmin etmek için bir Sinir Ağ modelimiz var.""",unsafe_allow_html=True)
   
