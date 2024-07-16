@@ -74,6 +74,8 @@ if page == "TEKNİK":
     plt.ylabel("Fiyat", fontsize=12,color="black")
     plt.plot(close_prices, label='Kapanış Fiyatı')
     plt.legend()
+    fig_html = mpld3.fig_to_html(fig)
+    components.html(fig_html, height=500)
     figs.append(fig)
     
     
