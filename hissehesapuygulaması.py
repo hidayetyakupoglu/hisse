@@ -9,13 +9,25 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 import yfinance as yf
+npNaN = np.nan
+import pandas_ta as pta
+import matplotlib.pyplot as plt
+import mpld3
+import streamlit.components.v1 as components
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LinearRegression
+from fpdf import FPDF
+import base64
+from tempfile import NamedTemporaryFile
+from yahoo_fin import stock_info as si
+from streamlit_option_menu import option_menu
 
   
 tabs= ["TEMEL","TEKNİK","AL-SAT"]
 
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 
-if page == "TEKNİK"
+if page == "TEKNİK":
    figs=[]
 
   st.markdown(""" ## Hisse Senedi Fiyat Analizi ve Tahmini  """,unsafe_allow_html=True)
