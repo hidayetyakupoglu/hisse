@@ -75,9 +75,9 @@ if page == "AL-SAT":
     'ULUSE.IS', 'VAKBN.IS', 'VESTL.IS', 'VESTN.IS', 'VKGYO.IS', 'YATAS.IS', 'YKGYO.IS', 'YKBNK.IS',
     'ZOREN.IS']
      
-     bist30_symbols= bist100
-     signals = []
-     for symbol in bist30_symbols:
+    bist30_symbols= bist100
+    signals = []
+    for symbol in bist30_symbols:
           try:
               df = yf.download(symbol, start='2024-01-01')
               supertrend = Supertrend(df)
@@ -90,8 +90,8 @@ if page == "AL-SAT":
           except Exception as e:
               print(f"Error processing {symbol}: {e}")
       
-      df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
-      print(df_signals)
+    df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
+    print(df_signals)
 
 if page == "TEKNİK":
     figs=[]
