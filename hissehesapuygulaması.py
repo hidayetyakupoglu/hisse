@@ -27,7 +27,7 @@ st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI*by hidayet_yakupoglu]** :", div
 
 ticker_all_List = pd.read_csv("bist.csv")
 tickers_all=ticker_all_List["Ticker"]
-hisse_input = st.selectbox('Hisse',tickers_all,index=40,help='Analiz Etmek İstediğiniz Hisseyi Seçebilirsiniz.')
+hisse_input = st.selectbox('Hisse',tickers_all,index=38,help='Analiz Etmek İstediğiniz Hisseyi Seçebilirsiniz.')
 
 hisse_adi = hisse_input
 
