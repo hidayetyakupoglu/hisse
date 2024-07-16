@@ -137,7 +137,7 @@ if page == "AL-SAT":
         ax2.legend()
 
         # Başlık ekleme
-        fig.suptitle(f'Supertrend Analizi - {symbol}', fontsize=16)
+        fig.suptitle(f'Supertrend Analizi - {ticker}', fontsize=16)
 
         # Görseli Streamlit'e gönderme
         st.pyplot(fig)
