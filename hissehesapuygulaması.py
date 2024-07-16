@@ -74,24 +74,30 @@ if page == "AL-SAT":
     'TOASO.IS', 'TRGYO.IS', 'TRKCM.IS', 'TSKB.IS', 'TTKOM.IS', 'TTRAK.IS', 'TUPRS.IS', 'ULKER.IS',
     'ULUSE.IS', 'VAKBN.IS', 'VESTL.IS', 'VESTN.IS', 'VKGYO.IS', 'YATAS.IS', 'YKGYO.IS', 'YKBNK.IS',
     'ZOREN.IS']
-     
-    bist30_symbols= bist100
-    signals = []
-    for symbol in bist30_symbols:
-          try:
-              df = yf.download(symbol, start='2024-01-01')
-              supertrend = Supertrend(df)
-              df = df.join(supertrend)
-              # Son kapanış fiyatı Supertrend'in alt bandının üzerindeyse al sinyali ver
-              if df['Adj Close'][-1] > df['Lowerband'][-1]:
-                  signals.append((symbol, "Al"))
-              else:
-                  signals.append((symbol, "Sat"))
-          except Exception as e:
-              print(f"Error processing {symbol}: {e}")
-      
-    df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
-    print(df_signals)
+
+
+    button=st.button("Start")
+
+    if button==True:
+        with st.spinner("Lütfen bekleyin..."):
+            
+            bist30_symbols= bist100
+            signals = []
+            for symbol in bist30_symbols:
+                  try:
+                      df = yf.download(symbol, start='2024-01-01')
+                      supertrend = Supertrend(df)
+                      df = df.join(supertrend)
+                      # Son kapanış fiyatı Supertrend'in alt bandının üzerindeyse al sinyali ver
+                      if df['Adj Close'][-1] > df['Lowerband'][-1]:
+                          signals.append((symbol, "Al"))
+                      else:
+                          signals.append((symbol, "Sat"))
+                  except Exception as e:
+                      print(f"Error processing {symbol}: {e}")
+              
+            df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
+            st.table(df_signals)  
 
 if page == "TEKNİK":
     figs=[]
