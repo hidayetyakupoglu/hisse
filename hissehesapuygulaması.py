@@ -920,14 +920,7 @@ if page == "TEMEL":
       ##  st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")
        
     
-    else:
-     
-      
     
     
     
-        #if __name__ == "__main__":
-        #  st.run()
-    
-    
-    #!streamlit run deneme.py & npx localtunnel --port 8501
+
