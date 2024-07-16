@@ -3,8 +3,8 @@ argon2-cffi
 astor
 attrs
 streamlit
+numpy==1.22.0
 bs4
-pandas
 requests
 backcall
 base58
@@ -46,7 +46,6 @@ nbconvert
 nbformat
 nest-asyncio
 notebook
-numpy
 packaging
 pandas
 pandocfilters
