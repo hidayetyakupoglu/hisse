@@ -70,6 +70,30 @@ tabs= ["TEMEL","TEKNİK","AL-SAT"]
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 
 if page == "AL-SAT":
+    if st.button("TARAMAYI YAP-2"):     
+        signals = []
+        for symbol in bist30_symbols:
+            try:
+                df = yf.download(symbol, start='2024-01-01')
+                supertrend = Supertrend(df)
+                df = df.join(supertrend)
+        
+                # Son 5 periyot için al/sat sinyallerini kontrol et
+                last_5_signals = []
+                for i in range(1, 11):
+                    if df['Adj Close'][-i] > df['Lowerband'][-i]:
+                        last_5_signals.append("AL ")
+                    else:
+                        last_5_signals.append("SAT")
+        
+                signals.append((symbol, ", ".join(last_5_signals)))
+        
+            except Exception as e:
+                print(f"Error processing {symbol}: {e}")
+        
+        df_signals = pd.DataFrame(signals, columns=['Symbol', 'Son 10 Sinyal(t,t-1,...)'])
+        st.table(df_signals)
+        
     if st.button("TARAMAYI YAP"):
         signals = []
         for symbol in bist100:
