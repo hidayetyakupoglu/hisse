@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 import yfinance as yf
+from yahoo_fin import stock_info as si
 
   
 tabs= ["TEMEL","TEKNİK","AL-SAT"]
