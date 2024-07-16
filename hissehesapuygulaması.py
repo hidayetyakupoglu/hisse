@@ -71,10 +71,6 @@ page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 
 
 
-
-   
-        if st.button("TARAMAYI YAP"):
-
 if page == "AL-SAT":
     col1, col2 = st.columns(2)  # Create two columns
     with col1:
