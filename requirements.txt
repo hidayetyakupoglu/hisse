@@ -90,3 +90,13 @@ wcwidth
 webencodings
 widgetsnbextension
 yfinance
+streamlit
+matplotlib
+tensorflow
+scikit-learn
+yahoo-fin
+protobuf
+mpld3
+pandas_ta
+fpdf
+streamlit-option-menu
