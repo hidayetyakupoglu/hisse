@@ -105,7 +105,9 @@ bist100 = ['AEFES.IS', 'AGHOL.IS', 'AKBNK.IS', 'AKCNS.IS', 'AKENR.IS', 'AKGRT.IS
 tabs= ["TEMEL","TEKNİK","AL-SAT"]
 
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
-
+st.sidebar.title("İletişim Bilgileri")
+st.sidebar.subheader("Yazar:")
+st.sidebar.write("Hidayet YAKUPOĞLU")
 
 
 if page == "AL-SAT":
