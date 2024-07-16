@@ -113,69 +113,69 @@ if page == "AL-SAT":
     Bu sayfada, BIST 100 endeksindeki hisse senetleri için Supertrend göstergesi kullanarak "Al" veya "Sat" sinyalleri oluşturabilirsiniz.
     "TARAMAYI YAP" butonuna tıklayarak tarama işlemini başlatabilirsiniz.
     """)
-        if st.button("SEÇİLİ HİSSE İÇİN SUPERTREND BACKTEST YAP"): 
-            symbol = st.text_input("Hisse Senedi Göstergesi") 
-            df = yf.download(symbol, start='2024-01-01')
-            supertrend = Supertrend(df)
-            df = df.join(supertrend)
-            entry_points, exit_points, roi = backtest_supertrend(df)
-            st.table(roi)
+    if st.button("SEÇİLİ HİSSE İÇİN SUPERTREND BACKTEST YAP"): 
+        symbol = st.text_input("Hisse Senedi Göstergesi") 
+        df = yf.download(symbol, start='2024-01-01')
+        supertrend = Supertrend(df)
+        df = df.join(supertrend)
+        entry_points, exit_points, roi = backtest_supertrend(df)
+        st.table(roi)
 
-        if st.button("DURUM DEĞİŞTİREN HİSSELERİ TARA"):     
-            signals = []
-            for symbol in bist100:
-                try:
-                    df = yf.download(symbol, start='2024-01-01')
-                    supertrend = Supertrend(df)
-                    df = df.join(supertrend)
-                 
-                    # Son 5 periyot için al/sat sinyallerini kontrol et
-                    last_5_signals = []
-                    for i in range(1, 11):
-                        if df['Adj Close'][-i] > df['Lowerband'][-i]:
-                            last_5_signals.append("AL ")
-                        else:
-                            last_5_signals.append("SAT")
-            
-                    signals.append((symbol, ", ".join(last_5_signals)))
-            
-                except Exception as e:
-                    print(f"Error processing {symbol}: {e}")
-            
-            df_signals = pd.DataFrame(signals, columns=['Symbol', 'Son 10 Sinyal(t,t-1,...)'])
-            sat_to_al_symbols = df_signals[df_signals['Son 10 Sinyal(t,t-1,...)'].str.endswith('SAT') & df_signals['Son 10 Sinyal(t,t-1,...)'].str.contains('AL ')]
-            al_to_sat_symbols = df_signals[df_signals['Son 10 Sinyal(t,t-1,...)'].str.endswith('AL ') & df_signals['Son 10 Sinyal(t,t-1,...)'].str.contains('SAT')]
-            # Bu hisseleri sırala
-            al_to_sat_symbols_sorted = al_to_sat_symbols.sort_values('Symbol')
-            sat_to_al_symbols_sorted = sat_to_al_symbols.sort_values('Symbol')
-            
-            st.markdown(" SAT SİNYALİNE DÖNEN HİSSELER ")
-            
-            st.table(al_to_sat_symbols_sorted)
-          
-            st.markdown(" AL SİNYALİNE DÖNEN HİSSELER ")
-            
-            st.table(sat_to_al_symbols_sorted)
+    if st.button("DURUM DEĞİŞTİREN HİSSELERİ TARA"):     
+        signals = []
+        for symbol in bist100:
+            try:
+                df = yf.download(symbol, start='2024-01-01')
+                supertrend = Supertrend(df)
+                df = df.join(supertrend)
              
-          
-        if st.button("TÜM BİST 100 HİSSELERİNİ TARA"):
-            signals = []
-            for symbol in bist100:
-                try:
-                    df = yf.download(symbol, start='2024-01-01')
-                    supertrend = Supertrend(df)
-                    df = df.join(supertrend)
-                    # Son kapanış fiyatı Supertrend'in alt bandının üzerindeyse al sinyali ver
-                    if df['Adj Close'][-1] > df['Lowerband'][-1]:
-                        signals.append((symbol, "Al"))
+                # Son 5 periyot için al/sat sinyallerini kontrol et
+                last_5_signals = []
+                for i in range(1, 11):
+                    if df['Adj Close'][-i] > df['Lowerband'][-i]:
+                        last_5_signals.append("AL ")
                     else:
-                        signals.append((symbol, "Sat"))
-                except Exception as e:
-                    print(f"Error processing {symbol}: {e}")
-            
-            df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
-            st.table(df_signals)
-  
+                        last_5_signals.append("SAT")
+        
+                signals.append((symbol, ", ".join(last_5_signals)))
+        
+            except Exception as e:
+                print(f"Error processing {symbol}: {e}")
+        
+        df_signals = pd.DataFrame(signals, columns=['Symbol', 'Son 10 Sinyal(t,t-1,...)'])
+        sat_to_al_symbols = df_signals[df_signals['Son 10 Sinyal(t,t-1,...)'].str.endswith('SAT') & df_signals['Son 10 Sinyal(t,t-1,...)'].str.contains('AL ')]
+        al_to_sat_symbols = df_signals[df_signals['Son 10 Sinyal(t,t-1,...)'].str.endswith('AL ') & df_signals['Son 10 Sinyal(t,t-1,...)'].str.contains('SAT')]
+        # Bu hisseleri sırala
+        al_to_sat_symbols_sorted = al_to_sat_symbols.sort_values('Symbol')
+        sat_to_al_symbols_sorted = sat_to_al_symbols.sort_values('Symbol')
+        
+        st.markdown(" SAT SİNYALİNE DÖNEN HİSSELER ")
+        
+        st.table(al_to_sat_symbols_sorted)
+      
+        st.markdown(" AL SİNYALİNE DÖNEN HİSSELER ")
+        
+        st.table(sat_to_al_symbols_sorted)
+         
+      
+    if st.button("TÜM BİST 100 HİSSELERİNİ TARA"):
+        signals = []
+        for symbol in bist100:
+            try:
+                df = yf.download(symbol, start='2024-01-01')
+                supertrend = Supertrend(df)
+                df = df.join(supertrend)
+                # Son kapanış fiyatı Supertrend'in alt bandının üzerindeyse al sinyali ver
+                if df['Adj Close'][-1] > df['Lowerband'][-1]:
+                    signals.append((symbol, "Al"))
+                else:
+                    signals.append((symbol, "Sat"))
+            except Exception as e:
+                print(f"Error processing {symbol}: {e}")
+        
+        df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
+        st.table(df_signals)
+
 if page == "TEKNİK":
     figs=[]
     st.markdown(""" ## Hisse Senedi Fiyat Analizi ve Tahmini  """,unsafe_allow_html=True)
