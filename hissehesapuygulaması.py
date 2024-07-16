@@ -9,6 +9,11 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
+tabs= ["FİNANSAL","TEKNİK ANALİZ","HAKKINDA"]
+
+page = st.sidebar.radio("📈BIST 100",tabs)
+
+
 #streamlit.config.theme.base = "dark"
 st.title("**BIST HİSSE FİYAT **")
 st.subheader("**:blue[BORSA HİSSE HESAPLAYICISI*by hidayet_yakupoglu]** :", divider='red')
