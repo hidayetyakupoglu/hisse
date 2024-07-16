@@ -21,6 +21,78 @@ tabs= ["TEMEL","TEKNİK","AL-SAT"]
 
 page = st.sidebar.radio("📈HİSSE ANALİZ",tabs)
 
+if page == "AL-SAT":
+   def Supertrend(df, atr_period=10, multiplier=3):
+
+
+    high, low, close = df['High'], df['Low'], df['Adj Close']
+
+    true_range = pd.concat([high - low, high - close.shift(), close.shift() - low], axis=1).abs().max(axis=1)
+    average_true_range = true_range.ewm(alpha=1/atr_period, min_periods=atr_period).mean()
+    df['ATR'] = average_true_range
+
+    hl2 = (high + low) / 2
+
+    upper_band = hl2 + (multiplier * average_true_range)
+    lower_band = hl2 - (multiplier * average_true_range)
+
+    supertrend = pd.Series(True, index=df.index)
+
+    for i in range(1, len(df.index)):
+        if close.iloc[i] > upper_band.iloc[i-1]:
+            supertrend.iloc[i] = True
+
+        elif close.iloc[i] < lower_band.iloc[i-1]:
+            supertrend.iloc[i] = False
+
+        else:
+            supertrend.iloc[i] = supertrend.iloc[i-1]
+
+            # When the band is below prices, it only moves upwards or sideways, never downwards;
+            # and when the band is above prices, it only moves downwards or sideways, never upwards.
+            if supertrend.iloc[i] and lower_band.iloc[i] < lower_band.iloc[i-1]:
+                lower_band.iloc[i] = lower_band.iloc[i-1]
+            if not supertrend.iloc[i] and upper_band.iloc[i] > upper_band.iloc[i-1]:
+                upper_band.iloc[i] = upper_band.iloc[i-1]
+
+        upper_band.iloc[i] = np.nan if supertrend.iloc[i] else upper_band.iloc[i]
+        lower_band.iloc[i] = np.nan if not supertrend.iloc[i] else lower_band.iloc[i]
+
+    result_df = pd.DataFrame({'Supertrend': supertrend, 'Lowerband': lower_band, 'Upperband': upper_band}, index=df.index)
+
+    return result_df
+    bist100 = ['AEFES.IS', 'AGHOL.IS', 'AKBNK.IS', 'AKCNS.IS', 'AKENR.IS', 'AKGRT.IS', 'AKSA.IS', 'AKSEN.IS',
+    'ALARK.IS', 'ALGYO.IS', 'ARCLK.IS', 'ASELS.IS', 'AVOD.IS', 'BAGFS.IS', 'BANVT.IS', 'BIMAS.IS',
+    'BIZIM.IS', 'BRISA.IS', 'BRKSN.IS', 'BOBET.IS','CCOLA.IS', 'CEMTS.IS', 'CIMSA.IS', 'CMENT.IS', 'CLEBI.IS',
+    'DEVA.IS', 'DOHOL.IS', 'DOAS.IS', 'ECILC.IS', 'ECZYT.IS', 'EGSER.IS', 'EKGYO.IS', 'ENJSA.IS',
+    'ENKAI.IS', 'EREGL.IS', 'FROTO.IS', 'GARAN.IS', 'GENTS.IS', 'GLYHO.IS', 'GOODY.IS', 'GUBRF.IS',
+    'HALKB.IS', 'HURGZ.IS', 'ICBCT.IS', 'IHEVA.IS', 'IHLAS.IS', 'ISFIN.IS', 'ISGYO.IS', 'ISMEN.IS',
+    'ISYHO.IS', 'ISCTR.IS', 'KARSN.IS', 'KARTN.IS', 'KCHOL.IS', 'KORDS.IS', 'KOZAA.IS', 'KOZAL.IS',
+    'KRDMD.IS', 'LOGO.IS', 'MAVI.IS', 'MGROS.IS', 'NTHOL.IS', 'ODAS.IS', 'OTKAR.IS', 'OZKGY.IS',
+    'PETKM.IS', 'PGSUS.IS', 'PRKME.IS', 'QUAGR.IS', 'RAYSG.IS', 'SAHOL.IS', 'SASA.IS', 'SELEC.IS',
+    'SISE.IS', 'SKBNK.IS', 'SOKM.IS', 'TATGD.IS', 'TAVHL.IS', 'TCELL.IS', 'THYAO.IS', 'TKFEN.IS',
+    'TOASO.IS', 'TRGYO.IS', 'TRKCM.IS', 'TSKB.IS', 'TTKOM.IS', 'TTRAK.IS', 'TUPRS.IS', 'ULKER.IS',
+    'ULUSE.IS', 'VAKBN.IS', 'VESTL.IS', 'VESTN.IS', 'VKGYO.IS', 'YATAS.IS', 'YKGYO.IS', 'YKBNK.IS',
+    'ZOREN.IS']
+     
+     bist30_symbols= bist100
+     signals = []
+     for symbol in bist30_symbols:
+          try:
+              df = yf.download(symbol, start='2024-01-01')
+              supertrend = Supertrend(df)
+              df = df.join(supertrend)
+              # Son kapanış fiyatı Supertrend'in alt bandının üzerindeyse al sinyali ver
+              if df['Adj Close'][-1] > df['Lowerband'][-1]:
+                  signals.append((symbol, "Al"))
+              else:
+                  signals.append((symbol, "Sat"))
+          except Exception as e:
+              print(f"Error processing {symbol}: {e}")
+      
+      df_signals = pd.DataFrame(signals, columns=['Symbol', 'Signal'])
+      print(df_signals)
+
 if page == "TEKNİK":
     figs=[]
     st.markdown(""" ## Hisse Senedi Fiyat Analizi ve Tahmini  """,unsafe_allow_html=True)
