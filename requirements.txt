@@ -11,3 +11,4 @@ protobuf
 mpld3
 pandas_ta
 streamlit-option-menu
+streamlit-echarts
