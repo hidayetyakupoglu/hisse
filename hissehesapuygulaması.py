@@ -587,20 +587,22 @@ if page == "TEMEL":
               sek_ortalama = temeldegerler.find("div", id="sectorAreaBigData")
               sek_ortalama_fk = temeldegerler.find("div", "second-item text-right")
               sek_ortalama_pd = temeldegerler.find("div", "fifth-item text-right")
+              sek_ortalama_fav = temeldegerler.find("div", "third-item text-right")
               # Ensure elements are found before extracting values
               if sek_ortalama_fk and sek_ortalama_pd:
                   # Get and clean the values
                   sek_ortalama_fk_value = sek_ortalama_fk.text.strip().replace(",", ".")
                   sek_ortalama_pd_value = sek_ortalama_pd.text.strip().replace(",", ".")
-    
+                  sek_ortalama_fav_value = sek_ortalama_fav.text.strip().replace(",", ".")
                   # Convert to floats
                   sek_ortalama_fk_float = float(sek_ortalama_fk_value)
                   sek_ortalama_pd_float = float(sek_ortalama_pd_value)
-    
+                  sek_ortalama_fav_float = float(sek_ortalama_fav_value)
                   # Print the results
                   #print(sek_ortalama)
                   st.write(f"**Sektör F/K Oranı:** {sek_ortalama_fk_float}") #, box=True)
                   st.write(f"**Sektör PD/DD Oranı:** {sek_ortalama_pd_float}")#, box=True)
+                  st.write(f"**Sektör FD/FAVÖK Oranı:** {sek_ortalama_fav_float}")#, box=True)
               else:
                   print("Error: Elements not found. Check website structure or selectors.")
     
