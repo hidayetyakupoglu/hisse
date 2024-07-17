@@ -750,7 +750,7 @@ if page == "TEMEL":
                     "name": "Potansiyel Getiri",
                     "type": "gauge",
                     "detail": {"formatter": "{value}%"},
-                    "data": [{"value": potans, "name": "Potansiyel"}]
+                    "data": [{"value": round(potans,1), "name": "Potansiyel"}]
                 }
             ]
       }
