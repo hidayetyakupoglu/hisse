@@ -16,6 +16,7 @@ import streamlit.components.v1 as components
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
 import math
+from streamlit_echarts import st_echarts
 
 def Supertrend(df, atr_period=10, multiplier=3):
     high, low, close = df['High'], df['Low'], df['Adj Close']
@@ -739,9 +740,25 @@ if page == "TEMEL":
       st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap:,.2f}")
       st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")    
       st.write(f":chart:**:blue[GETİRİ POTANSİYELİ %:]** {potans:,.2f}")
-     
-    
-    
-    
+      # Speedometer (Gauge) Chart for 'potans'
+        
+       option = {
+            "tooltip": {
+                "formatter": "{a} <br/>{b} : {c}%"
+            },
+            "series": [
+                {
+                    "name": "Potansiyel Getiri",
+                    "type": "gauge",
+                    "detail": {"formatter": "{value}%"},
+                    "data": [{"value": potans, "name": "Potansiyel"}]
+                }
+            ]
+        }
+        
+        st_echarts(option)
+             
+            
+            
     
 
