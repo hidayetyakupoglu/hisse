@@ -675,6 +675,10 @@ if page == "TEMEL":
       # HİSSE PD/DD ORANI
       #c11 = st.number_input("Hisse PD/DD Oranı: ")
       c11 = float(pd_value) #.replace(",", "."))
+      
+      # HİSSE FD/FAVÖK ORANI
+      #c11 = st.number_input("Hisse PD/DD Oranı: ")
+      c00 = float(fav_value) #.replace(",", "."))  
     
       # BİST100 /SEKTÖR GÜNCEL F/K ORANI
       #c12 = float(st.number_input("BİST100 / Sektör Güncel F/K Oranı: "))
@@ -686,7 +690,7 @@ if page == "TEMEL":
 
       # BIST100 / Sektör Güncel FD/FAVÖK Oranı
       #c13 = float(st.number_input("BİST100 / Sektör Güncel FD/FAVÖK Oranı:"))
-      c00 = sek_ortalama_fav_float
+      c01 = sek_ortalama_fav_float
      
       # Ödenmiş Sermaye
       ##c4 = st.number_input("Ödenmiş Sermaye: ")
@@ -724,7 +728,7 @@ if page == "TEMEL":
       #st.write("**HİSSE HEDEF FİYAT HESAPLAYICI**")
       st.subheader(":two:**HİSSE HEDEF FİYAT HESAPLAYICI**", divider='rainbow')
     
-      operation = st.selectbox(":blue[**HİSSE FİYAT HESAPLAMARI İÇİN İŞLEM SEÇİN:**]", ["İŞLEM SEÇİN", "GÜNCEL BİLANÇOYA GÖRE HİSSE FİYATI", "1. Çeyrek Bilanço Hisse Oranları-3 Aylık", "2. Çeyrek Bilanço Hisse Oranları-6 Aylık", "3. Çeyrek Bilanço Hisse Oranları-9 Aylık", "4. Çeyrek Bilanço Hisse Oranları-12 Aylık"])
+      operation = st.selectbox(":blue[**HİSSE FİYAT HESAPLAMARI İÇİN İŞLEM SEÇİN:**]", ["İŞLEM SEÇİN"])
       #if operation == "Tüm Hedef Fiyatları Göster":
       if operation == "İŞLEM SEÇİN":
         st.write(f"İŞLEM SEÇİN")
@@ -740,16 +744,19 @@ if page == "TEMEL":
         future_fk = (c3/c17)*c12
         fk_hedef_fiyat = c3 / c10 * c12
         pd_hedef_fiyat = c3 / c11 * c13
+        fav_hedef_fiyat = c3 / c00* c01
         ozsermaye_hf = (c7/c8)*10/c11*c3 ##Yılsonu Tahmini Özsermaye Karlılığına Göre Hedef Fiyat
         odenmis_hedef_fiyat = (c7 / c4) * c10
-        ortalama_hesap = ( fk_hedef_fiyat + future_fk + pd_hedef_fiyat + odenmis_hedef_fiyat + ozsermaye_hf + potansiyel_fiyat ) / 5
+        #ortalama_hesap = ( fk_hedef_fiyat + future_fk + pd_hedef_fiyat + odenmis_hedef_fiyat + ozsermaye_hf + potansiyel_fiyat ) / 5
+        ortalama_hesap = ( fk_hedef_fiyat + pd_hedef_fiyat + fav_hedef_fiyat  ) / 3
         #st.write(f":blue[**Potansiyel Piyasa Değerine Göre Olması Gereken Fiyat:**] { potansiyel_fiyat :,.2f}")    
         st.write(f":blue[**F/K HEDEF FİYAT:**] {fk_hedef_fiyat:,.2f}")
+        st.write(f":blue[**FD/FAVÖK HEDEF FİYAT:**] {fav_hedef_fiyat:,.2f}")  
         #st.write(f":blue[**YILSONU TAHMİNİ F/K HEDEF FİYATI:**] {future_fk:,.2f}")
         st.write(f":blue[**PD/DD HEDEF FİYAT:**] {pd_hedef_fiyat:,.2f}")
         #st.write(f":blue[**ÖDENMİŞ SERMAYEYE GÖRE HEDEF FİYAT:**] {odenmis_hedef_fiyat:,.2f}")
         #st.write(f":blue[**ÖZSERMAYE KARLILIĞINA GÖRE HEDEF FİYAT**]: {ozsermaye_hf:,.2f}")
-        #st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap:,.2f}")
+        st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap:,.2f}")
         st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")    
     
       elif operation == "BİR ÇEYREK SONRAKİ HEDEF FİYATI TAHMİNİ":  
