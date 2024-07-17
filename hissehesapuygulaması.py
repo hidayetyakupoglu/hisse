@@ -625,6 +625,13 @@ if page == "TEMEL":
               else:  
                 pd_value_1 = st.number_input(f"**:blue[PD/DD VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN PD/DD ORANI GİRİNİZ:]**")
                 pd_value = float(pd_value_1)
+              fav_value = hisse_oran[stock_name]["fd_fav"].replace(",", ".")
+              if fav_value != "A/D":
+                st.write(f"**:blue[HİSSE FD/FAVÖK ORANI:]**  {fav_value}") #, box = True)
+              else:  
+                fav_value_1 = st.number_input(f"**:blue[FD/FAVÖK VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN ORANI GİRİNİZ:]**")
+                fav_value = float(fav_value_1)
+             
               #st.write(f"**HİSSE F/K ORANI:**  {fk_value}") #, box = True)
               #st.write(f"**HİSSE PD/DD ORANI:**  {pd_value}") #, box = True)
               #print(f"{stock_name} Hisse Fiyatı: {kapanıs}")
@@ -676,7 +683,11 @@ if page == "TEMEL":
       # BIST100 / Sektör Güncel P/D Oranı
       #c13 = float(st.number_input("BİST100 / Sektör Güncel PD/DD Oranı:"))
       c13 = sek_ortalama_pd_float
-    
+
+      # BIST100 / Sektör Güncel FD/FAVÖK Oranı
+      #c13 = float(st.number_input("BİST100 / Sektör Güncel FD/FAVÖK Oranı:"))
+      c00 = sek_ortalama_fav_float
+     
       # Ödenmiş Sermaye
       ##c4 = st.number_input("Ödenmiş Sermaye: ")
       c4 = float(OdenmisSermaye1) #Otomatik Veri İşlem İçin Bu Satır
