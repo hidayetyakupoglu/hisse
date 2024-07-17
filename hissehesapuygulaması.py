@@ -557,10 +557,11 @@ if page == "TEMEL":
           kapanıs = hucre[1].text
           #c3 = float(kapanıs)
           f_k = hucre[2].text
+          fd_fav = hucre[3].text
           #c10 = float(fk_value)
           pd_dd = hucre[5].text
           #c11 = float(pd_value)
-          hisse_oran[hisse_adi_1] = {"kapanıs": kapanıs, "f_k": f_k, "pd_dd": pd_dd}
+          hisse_oran[hisse_adi_1] = {"kapanıs": kapanıs, "f_k": f_k, "pd_dd": pd_dd, "fd_fav": fd_fav}
     
       # Get the stock name from the user
       stock_name = hisse_adi #input("Hisse Adı Giriniz: ").upper()
