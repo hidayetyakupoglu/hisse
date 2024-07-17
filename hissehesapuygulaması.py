@@ -732,7 +732,7 @@ if page == "TEMEL":
       pd_hedef_fiyat = c3 / c11 * c13
       fav_hedef_fiyat = c3 / c00* c01
       ortalama_hesap = ( fk_hedef_fiyat + pd_hedef_fiyat + fav_hedef_fiyat  ) / 3
-      potans=((ortalama_hesap-kapanıs)*100)/kapanıs
+      potans=((ortalama_hesap - c3)*100)/c3
       st.write(f":blue[**F/K HEDEF FİYAT:**] {fk_hedef_fiyat:,.2f}")
       st.write(f":blue[**FD/FAVÖK HEDEF FİYAT:**] {fav_hedef_fiyat:,.2f}")  
       st.write(f":blue[**PD/DD HEDEF FİYAT:**] {pd_hedef_fiyat:,.2f}")
