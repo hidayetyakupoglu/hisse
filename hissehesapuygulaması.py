@@ -568,7 +568,21 @@ if page == "TEMEL":
       stock_name = hisse_adi #input("Hisse Adı Giriniz: ").upper()
     
       st.subheader(":one:**:blue[HİSSE VERİLERİ]**", divider='rainbow')
-      
+      option = {
+            "tooltip": {
+                "formatter": "{a} <br/>{b} : {c}%"
+            },
+            "series": [
+                {
+                    "name": "Potansiyel Getiri",
+                    "type": "gauge",
+                    "detail": {"formatter": "{value}%"},
+                    "data": [{"value": round(potans,1), "name": "Potansiyel"}]
+                }
+            ]
+      }
+        
+      st_echarts(option)
       if stock_name:
           # Check if the input is in the dictionary
           if stock_name in hisse_sektor:
