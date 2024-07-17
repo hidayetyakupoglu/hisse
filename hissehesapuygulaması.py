@@ -645,7 +645,7 @@ if page == "TEMEL":
               st.write(f"**:blue[NET DÖNEM KARI:]**  {float(NetDonemKarı1):,.0f}") #, box = True)
               st.write(f"**Geçmiş Dönem Bilanço Verileri:**")
               st.write(f"**ÖZKAYNAKLAR(Bir Önceki Çeyrek):**  {float(ozkaynaklar_2):,.0f}")
-              st.write(f"**ÖZKAYNAKLAR(Bir Önceki Çeyrek):**  {float(OdenmisSermaye_2):,.0f}")         
+              st.write(f"**ÖDENMİŞ SERMAYE(Bir Önceki Çeyrek):**  {float(OdenmisSermaye_2):,.0f}")         
               st.write(f"**NET DÖNEM KARI(Bir Önceki Çeyrek):**  {float(NetDonemKarı_2):,.0f}")
               st.write(f"**ÖZKAYNAKLAR(Geçmiş Yıl ):**  {float(ozkaynaklar_4):,.0f}") #", box = True)
               st.write(f"**ÖDENMİŞ SERMAYE(Geçmiş Yıl):**  {float(OdenmisSermaye_4):,.0f}") #, box = True)
@@ -756,7 +756,8 @@ if page == "TEMEL":
       }
         
       st_echarts(option)
-             
+      if st.button('Verileri Çek ve Analiz Et'):
+          st.write("Veriler çekiliyor ve analiz ediliyor...")       
             
             
     
