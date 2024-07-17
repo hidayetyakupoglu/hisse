@@ -727,30 +727,16 @@ if page == "TEMEL":
       # HİSSE HESAPLAYICISI SELECT BOX İLE F/K VE PD/DD ORANLARINA GÖRE HESAPLAMA
       #st.write("**HİSSE HEDEF FİYAT HESAPLAYICI**")
       st.subheader(":two:**HİSSE HEDEF FİYAT HESAPLAYICI**", divider='rainbow')
-        
-        #c7_3 = c7+c6 ## Yılsonu Net Kar Tahmini
-        c16_4 = c7 / c4 ## Yılsonu EPS(Hisse Başı Kazanç) Tahmini
-        #c16 =  c7 / c4     ## EPS(Hisse Başı Kazanç)
-        c17 = c3 / c16_4 ## Yılsonu F/K Oranı Tahmini
-        c21 = (c7*7)+(c8*0.5)
-        potansiyel_fiyat = c21/c4
-        future_fk = (c3/c17)*c12
-        fk_hedef_fiyat = c3 / c10 * c12
-        pd_hedef_fiyat = c3 / c11 * c13
-        fav_hedef_fiyat = c3 / c00* c01
-        ozsermaye_hf = (c7/c8)*10/c11*c3 ##Yılsonu Tahmini Özsermaye Karlılığına Göre Hedef Fiyat
-        odenmis_hedef_fiyat = (c7 / c4) * c10
-        #ortalama_hesap = ( fk_hedef_fiyat + future_fk + pd_hedef_fiyat + odenmis_hedef_fiyat + ozsermaye_hf + potansiyel_fiyat ) / 5
-        ortalama_hesap = ( fk_hedef_fiyat + pd_hedef_fiyat + fav_hedef_fiyat  ) / 3
-        #st.write(f":blue[**Potansiyel Piyasa Değerine Göre Olması Gereken Fiyat:**] { potansiyel_fiyat :,.2f}")    
-        st.write(f":blue[**F/K HEDEF FİYAT:**] {fk_hedef_fiyat:,.2f}")
-        st.write(f":blue[**FD/FAVÖK HEDEF FİYAT:**] {fav_hedef_fiyat:,.2f}")  
-        #st.write(f":blue[**YILSONU TAHMİNİ F/K HEDEF FİYATI:**] {future_fk:,.2f}")
-        st.write(f":blue[**PD/DD HEDEF FİYAT:**] {pd_hedef_fiyat:,.2f}")
-        #st.write(f":blue[**ÖDENMİŞ SERMAYEYE GÖRE HEDEF FİYAT:**] {odenmis_hedef_fiyat:,.2f}")
-        #st.write(f":blue[**ÖZSERMAYE KARLILIĞINA GÖRE HEDEF FİYAT**]: {ozsermaye_hf:,.2f}")
-        st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap:,.2f}")
-        st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")    
+      
+      fk_hedef_fiyat = c3 / c10 * c12
+      pd_hedef_fiyat = c3 / c11 * c13
+      fav_hedef_fiyat = c3 / c00* c01
+      ortalama_hesap = ( fk_hedef_fiyat + pd_hedef_fiyat + fav_hedef_fiyat  ) / 3
+      st.write(f":blue[**F/K HEDEF FİYAT:**] {fk_hedef_fiyat:,.2f}")
+      st.write(f":blue[**FD/FAVÖK HEDEF FİYAT:**] {fav_hedef_fiyat:,.2f}")  
+      st.write(f":blue[**PD/DD HEDEF FİYAT:**] {pd_hedef_fiyat:,.2f}")
+      st.write(f":chart:**:blue[TÜM HESAPLAMALARIN ORTALAMA FİYATI:]** {ortalama_hesap:,.2f}")
+      st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")    
     
      
     
