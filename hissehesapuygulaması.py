@@ -725,8 +725,8 @@ if page == "TEMEL":
       #c9 = st.number_input("Güncel Piyasa Değeri: ")
     
       # HİSSE HESAPLAYICISI SELECT BOX İLE F/K VE PD/DD ORANLARINA GÖRE HESAPLAMA
-      #st.write("**HİSSE HEDEF FİYAT HESAPLAYICI**")
-      st.subheader(":two:**HİSSE HEDEF FİYAT HESAPLAYICI**", divider='rainbow')
+      #st.write("**HİSSE HEDEF FİYAT**")
+      st.subheader(":two:**HİSSE HEDEF FİYAT**", divider='rainbow')
       
       fk_hedef_fiyat = c3 / c10 * c12
       pd_hedef_fiyat = c3 / c11 * c13
