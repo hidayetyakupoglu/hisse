@@ -833,7 +833,7 @@ if page == "TEMEL":
             # Potansiyel getiriye göre hisseleri sıralayın
           hisse_getirileri = sorted(hisse_getirileri, key=lambda x: x["Potansiyel Getiri"], reverse=True)
           for hisse in hisse_getirileri:
-              print(f"{hisse['Hisse Adı']}: Potansiyel Getiri %{hisse['Potansiyel Getiri']:.2f}")  
+              st.write(f"{hisse['Hisse Adı']}: Potansiyel Getiri %{hisse['Potansiyel Getiri']:.2f}")  
             
                        
                         
