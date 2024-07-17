@@ -741,8 +741,7 @@ if page == "TEMEL":
       st.write(f" :chart:**:blue[HİSSE FİYATI:]**  {kapanıs}")    
       st.write(f":chart:**:blue[GETİRİ POTANSİYELİ %:]** {potans:,.2f}")
       # Speedometer (Gauge) Chart for 'potans'
-        
-       option = {
+      option = {
             "tooltip": {
                 "formatter": "{a} <br/>{b} : {c}%"
             },
@@ -754,9 +753,9 @@ if page == "TEMEL":
                     "data": [{"value": potans, "name": "Potansiyel"}]
                 }
             ]
-        }
+      }
         
-        st_echarts(option)
+      st_echarts(option)
              
             
             
