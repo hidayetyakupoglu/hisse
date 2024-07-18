@@ -32,7 +32,7 @@ def update_visit_count():
     with open(COUNT_FILE, "w") as file:
         file.write(str(count))
     return count
-
+visit_count = update_visit_count()
 
 def Supertrend(df, atr_period=10, multiplier=3):
     high, low, close = df['High'], df['Low'], df['Adj Close']
@@ -127,10 +127,7 @@ st.sidebar.subheader("Yazar:")
 st.sidebar.write("Hidayet YAKUPOĞLU")
 st.sidebar.subheader("E-posta:")
 st.sidebar.write("hidayetyakupoglu@gmail.com")
-visit_count = update_visit_count()
-
-st.title("Ziyaret Sayısı")
-st.write(f"Toplam ziyaret sayısı: {visit_count}")
+st.sidebar.write(f"Toplam ziyaret sayısı: {visit_count}")
 
 
 if page == "AL-SAT":
