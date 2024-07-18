@@ -16,6 +16,23 @@ import streamlit.components.v1 as components
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
 import math
+import os
+COUNT_FILE = "visit_count.txt"
+
+def get_visit_count():
+    if os.path.exists(COUNT_FILE):
+        with open(COUNT_FILE, "r") as file:
+            count = int(file.read())
+    else:
+        count = 0
+    return count
+
+def update_visit_count():
+    count = get_visit_count() + 1
+    with open(COUNT_FILE, "w") as file:
+        file.write(str(count))
+    return count
+
 
 def Supertrend(df, atr_period=10, multiplier=3):
     high, low, close = df['High'], df['Low'], df['Adj Close']
@@ -110,7 +127,10 @@ st.sidebar.subheader("Yazar:")
 st.sidebar.write("Hidayet YAKUPOĞLU")
 st.sidebar.subheader("E-posta:")
 st.sidebar.write("hidayetyakupoglu@gmail.com")
+visit_count = update_visit_count()
 
+st.title("Ziyaret Sayısı")
+st.write(f"Toplam ziyaret sayısı: {visit_count}")
 
 
 if page == "AL-SAT":
