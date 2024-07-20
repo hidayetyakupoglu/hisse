@@ -634,20 +634,27 @@ if page == "TEMEL":
               if fk_value != "A/D":
                 st.write(f"**:blue[HİSSE F/K ORANI:]**  {fk_value}") #, box = True)
               else:  
-                fk_value_1 = st.number_input(f"**:blue[F/K VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN F/K ORANI GİRİNİZ:]**")
-                fk_value = float(fk_value_1)
+                #fk_value_1 = st.number_input(f"**:blue[F/K VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN F/K ORANI GİRİNİZ:]**")
+                #fk_value = float(fk_value_1)
+                fk_value_1 = st.write(f"**:blue[F/K VERİSİNE ULAŞILAMADIĞINDAN SEKTÖR ORT. ALINMIŞTIR]**")
+                fk_value = float(sek_ortalama_fk_value)
               pd_value = hisse_oran[stock_name]["pd_dd"].replace(",", ".")
               if pd_value != "A/D":
                 st.write(f"**:blue[HİSSE PD/DD ORANI:]**  {pd_value}") #, box = True)
               else:  
-                pd_value_1 = st.number_input(f"**:blue[PD/DD VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN PD/DD ORANI GİRİNİZ:]**")
-                pd_value = float(pd_value_1)
+                #pd_value_1 = st.number_input(f"**:blue[PD/DD VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN PD/DD ORANI GİRİNİZ:]**")
+                #pd_value = float(pd_value_1)
+                pd_value_1 = st.write(f"**:blue[PD/DD VERİSİNE ULAŞILAMADIĞINDAN SEKTÖR ORT. ALINMIŞTIR]**")
+                pd_value = float(sek_ortalama_pd_value)
               fav_value = hisse_oran[stock_name]["fd_fav"].replace(",", ".")
               if fav_value != "A/D":
                 st.write(f"**:blue[HİSSE FD/FAVÖK ORANI:]**  {fav_value}") #, box = True)
               else:  
-                fav_value_1 = st.number_input(f"**:blue[FD/FAVÖK VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN ORANI GİRİNİZ:]**")
-                fav_value = float(fav_value_1)
+                #fav_value_1 = st.number_input(f"**:blue[FD/FAVÖK VERİSİNE ULAŞILAMAMIŞTIR LÜTFEN ORANI GİRİNİZ:]**")
+                #fav_value = float(fav_value_1)
+                fav_value_1 = st.write(f"**:blue[FD/FAVÖK VERİSİNE ULAŞILAMADIĞINDAN SEKTÖR ORT. ALINMIŞTIR]**")
+                fav_value = float(sek_ortalama_fav_value)
+                  
              
               #st.write(f"**HİSSE F/K ORANI:**  {fk_value}") #, box = True)
               #st.write(f"**HİSSE PD/DD ORANI:**  {pd_value}") #, box = True)
